@@ -52,6 +52,14 @@ public class Contato {
 		this.posicaoContato = posicaoContato;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((nomeContato == null) ? 0 : nomeContato.hashCode());
+		return result;
+	}
+
 	public boolean equals(Object objeto) {
 		if (objeto == null) {
 			return false;
@@ -62,8 +70,8 @@ public class Contato {
 		}
 		return false;
 	}
-	
+
 	public String toString() {
-		return this.nomeContato + " " + this.sobrenomeContato + " " + "-" + " " + this.telefoneContato; 
+		return this.nomeContato + " " + this.sobrenomeContato + " " + "-" + " " + this.telefoneContato;
 	}
 }

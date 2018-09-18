@@ -72,7 +72,7 @@ public class Agenda {
 					} else {
 						return false;
 					}
-				} else if (agenda.contatos[i] != null) {
+				} else if (this.contatos[i] != null) {
 					return false;
 
 				}
@@ -82,4 +82,6 @@ public class Agenda {
 		}
 		return false;
 	}
+	
+	
 }
