@@ -18,7 +18,7 @@ public class Agenda {
 	public boolean cadastraContato(String nomeContato, String sobrenomeContato, String telefoneContato,
 			int posicaoContato) {
 		Contato contato = new Contato(nomeContato, sobrenomeContato, telefoneContato, posicaoContato);
-		this.contatos[posicaoContato] = contato;
+		this.contatos[posicaoContato - 1] = contato;
 		if (nomeContato.equals("") || sobrenomeContato.equals("") || telefoneContato.equals("") || posicaoContato < 1
 				|| posicaoContato > 100) {
 			return false;
