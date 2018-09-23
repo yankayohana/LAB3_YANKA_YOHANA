@@ -1,6 +1,6 @@
-package Lab3;
+package lab3;
 
-import java.util.Scanner;
+import java.util.ArrayList;
 
 /**
  * Essa classe representa um menu que interage com o usuário.
@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class Menu {
 
 	public static void main(String[] args) {
+		Input input = new Input();
 		String entrada;
 		Agenda agenda = new Agenda();
 		do {
@@ -19,31 +20,28 @@ public class Menu {
 			System.out.println("(L)istar Contatos");
 			System.out.println("(E)xibir Contato");
 			System.out.println("(S)air");
-
-			Scanner sc = new Scanner(System.in);
-			entrada = sc.nextLine();
+			System.out.println("");
+			entrada = input.leString("Opção> ");
 
 			if (entrada.equalsIgnoreCase("C")) {
-				String nome = sc.nextLine();
-				String sobrenome = sc.nextLine();
-				String telefone = sc.nextLine();
-				int posicao = sc.nextInt();
+				int posicao = input.leInteiro("Posição: ");
+				String nome = input.leString("Nome: ");
+				String sobrenome = input.leString("Sobrenome: ");
+				String telefone = input.leString("Telefone: ");
 				agenda.cadastraContato(nome, sobrenome, telefone, posicao);
-
-				System.out.println("Opção> " + entrada);
-				sc.nextLine();
-
-				System.out.println("Posição: " + posicao);
-				System.out.println("Nome: " + nome);
-				System.out.println("Sobrenome: " + sobrenome);
-				System.out.println("Telefone: " + telefone);
 				System.out.println("CADASTRO REALIZADO!");
+				System.out.println("");
 
 			} else if (entrada.equalsIgnoreCase("L")) {
-				System.out.println(agenda.listaContatos());
+				ArrayList<String> contatos = agenda.listaContatos();
+				for (int i = 0; i < contatos.size(); i++) {
+					System.out.println(contatos.get(i));
+				}
 			} else if (entrada.equalsIgnoreCase("E")) {
-				int posicao = sc.nextInt();
-				System.out.println();
+				int posicao = input.leInteiro("Contato> ");
+				System.out.println("");
+				System.out.println(agenda.getToStringContato(posicao));
+				System.out.println("");
 			}
 		} while (!entrada.equalsIgnoreCase("S"));
 	}

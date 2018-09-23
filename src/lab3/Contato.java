@@ -1,4 +1,4 @@
-package Lab3;
+package lab3;
 
 /**
  * Essa classe representa um contato.
