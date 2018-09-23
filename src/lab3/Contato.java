@@ -7,11 +7,34 @@ package lab3;
  *
  */
 public class Contato {
+	
+	/**
+	 * String que representa o nome do contato.
+	 */
 	private String nomeContato;
+	
+	/**
+	 * String que representa o sobronome do contato.
+	 */
 	private String sobrenomeContato;
+	
+	/**
+	 * String que representa o telefone do contato.
+	 */
 	private String telefoneContato;
+	
+	/**
+	 * inteiro que representa a posição do contato.
+	 */
 	private int posicaoContato;
-
+	
+	/**
+	 * Constrói um contato a partir do nome, sobrenome, telefone e posição do contato. 
+	 * @param nomeContato uma string que representa o nome do contato.
+	 * @param sobrenomeContato uma string que representa o sobrenome do contato.
+	 * @param telefoneContato uma string que representa que representa o telefone do contato.
+	 * @param posicaoContato um inteiro que representa a posição do contato.
+	 */
 	public Contato(String nomeContato, String sobrenomeContato, String telefoneContato, int posicaoContato) {
 		this.nomeContato = nomeContato;
 		this.sobrenomeContato = sobrenomeContato;
@@ -19,6 +42,7 @@ public class Contato {
 		this.posicaoContato = posicaoContato;
 	}
 
+	
 	public String getNomeContato() {
 		return nomeContato;
 	}
@@ -60,6 +84,9 @@ public class Contato {
 		return result;
 	}
 
+	/**
+	 * Verifica se dois contatos são iguais.
+	 */
 	public boolean equals(Object objeto) {
 		if (objeto == null) {
 			return false;
@@ -71,6 +98,9 @@ public class Contato {
 		return false;
 	}
 
+	/**
+	 * Retorna uma string que representa um contato.
+	 */
 	public String toString() {
 		return this.nomeContato + " " + this.sobrenomeContato + " " + "-" + " " + this.telefoneContato;
 	}

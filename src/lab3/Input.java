@@ -2,6 +2,13 @@ package lab3;
 
 import java.util.Scanner;
 
+/**
+ * Essa classe encapsula a entrada de dados da entrada.
+ * 
+ * @author yanks
+ *
+ */
+
 public class Input {
 	private Scanner sc;
 
