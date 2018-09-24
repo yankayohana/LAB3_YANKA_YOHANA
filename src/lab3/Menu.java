@@ -28,9 +28,13 @@ public class Menu {
 				String nome = input.leString("Nome: ");
 				String sobrenome = input.leString("Sobrenome: ");
 				String telefone = input.leString("Telefone: ");
-				agenda.cadastraContato(nome, sobrenome, telefone, posicao);
-				System.out.println("CADASTRO REALIZADO!");
-				System.out.println("");
+				try {
+					agenda.cadastraContato(nome, sobrenome, telefone, posicao);
+					System.out.println("CADASTRO REALIZADO!");
+					System.out.println("");
+				} catch (Exception e) {
+					System.out.println(e.getMessage());
+				}
 
 			} else if (entrada.equalsIgnoreCase("L")) {
 				ArrayList<String> contatos = agenda.listaContatos();
@@ -40,7 +44,11 @@ public class Menu {
 			} else if (entrada.equalsIgnoreCase("E")) {
 				int posicao = input.leInteiro("Contato> ");
 				System.out.println("");
-				System.out.println(agenda.getToStringContato(posicao));
+				try {
+					System.out.println(agenda.getToStringContato(posicao));
+				} catch (Exception e) {
+					System.out.println(e.getMessage());
+				}
 				System.out.println("");
 			}
 		} while (!entrada.equalsIgnoreCase("S"));

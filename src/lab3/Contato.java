@@ -34,8 +34,14 @@ public class Contato {
 	 * @param sobrenomeContato uma string que representa o sobrenome do contato.
 	 * @param telefoneContato uma string que representa que representa o telefone do contato.
 	 * @param posicaoContato um inteiro que representa a posição do contato.
+	 * @throws Exception 
 	 */
-	public Contato(String nomeContato, String sobrenomeContato, String telefoneContato, int posicaoContato) {
+	public Contato(String nomeContato, String sobrenomeContato, String telefoneContato, int posicaoContato) throws Exception {
+		Validator.verificaString(nomeContato, "NOME");
+		Validator.verificaString(sobrenomeContato, "SOBRENOME");
+		Validator.verificaString(telefoneContato, "TELEFONE");
+		Validator.verificaPosicao(posicaoContato);
+		
 		this.nomeContato = nomeContato;
 		this.sobrenomeContato = sobrenomeContato;
 		this.telefoneContato = telefoneContato;

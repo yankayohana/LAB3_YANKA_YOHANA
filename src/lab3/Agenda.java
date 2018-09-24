@@ -29,14 +29,11 @@ public class Agenda {
 	 * @param telefoneContato uma string que representa o telefone do contato.
 	 * @param posicaoContato um inteiro que representa a posição do contato.
 	 * @return false se eu o contato não for válido e true se for for válido e o cadastro é realizado.
+	 * @throws Exception 
 	 */
 	public boolean cadastraContato(String nomeContato, String sobrenomeContato, String telefoneContato,
-			int posicaoContato) {
+			int posicaoContato) throws Exception {
 		Contato contato = new Contato(nomeContato, sobrenomeContato, telefoneContato, posicaoContato);
-		if (nomeContato.equals("") || sobrenomeContato.equals("") || telefoneContato.equals("") || posicaoContato < 1
-				|| posicaoContato > 100) {
-			return false;
-		}
 		this.contatos[posicaoContato - 1] = contato;
 		return true;
 
@@ -46,13 +43,15 @@ public class Agenda {
 	 * Pesquisa um contato na agenda.
 	 * @param posicaoContato um inteiro que representa a posição do contato na agenda.
 	 * @return retorna contato ou null se não encontrar.
+	 * @throws Exception 
 	 */
-	public Contato pesquisarContato(int posicaoContato) {
-		if (posicaoContato >= 0 && posicaoContato < 100) {
-			return this.contatos[posicaoContato];
-
+	public Contato pesquisarContato(int posicaoContato) throws Exception {
+		Validator.verificaIndice(posicaoContato);
+		Contato contato =  this.contatos[posicaoContato];
+		if (contato == null) {
+			throw new Exception("POSIÇÃO INVÁLIDA!");
 		}
-		return null;
+		return contato;
 
 	}
 	
@@ -60,14 +59,12 @@ public class Agenda {
 	 * Retorna um string do contato na posição no formato "posição - nome sobrenome".
 	 * @param posicao inteiro que representa a posição do contato na agenda.
 	 * @return retorna uma string com o contato ou a string "POSIÇÃO INVÁLIDA!" se a posição for inválida.
+	 * @throws Exception 
 	 */
-	public String getToStringContato(int posicao) {
+	public String getToStringContato(int posicao) throws Exception {
 		Contato contato = pesquisarContato(posicao - 1);
-		if (contato != null) {
 		return contato.toString();
-		}
-		return "POSIÇÃO INVÁLIDA!";
-	}	
+	}
 
 	/**
 	 * Lista os contatos da agenda no formado "posição - nome sobrenome".
