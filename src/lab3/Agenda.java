@@ -45,7 +45,7 @@ public class Agenda {
 	/**
 	 * Pesquisa um contato na agenda.
 	 * @param posicaoContato um inteiro que representa a posição do contato na agenda.
-	 * @return null.
+	 * @return retorna contato ou null se não encontrar.
 	 */
 	public Contato pesquisarContato(int posicaoContato) {
 		if (posicaoContato >= 0 && posicaoContato < 100) {
